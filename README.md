@@ -103,5 +103,111 @@ XPath does not use `+` for sibling selection. Instead, you use `following-siblin
 
 ---
 
-## 
+
+## **1️⃣ CSS and Text-Based Combination**
+Ensures precise selection by combining **CSS selectors** with **text content**.
+
+```ts
+await page.locator('button:has-text("Login")').click();
+```
+
+✅ Selects a button **only if it has "Login" text**.
+
+---
+
+## **2️⃣ Combining XPath with Attributes**
+Improves precision by targeting both structure and attributes.
+
+```ts
+await page.locator('//button[contains(@class, "btn") and text()="Submit"]').click();
+```
+
+✅ Selects a `<button>` that contains `class="btn"` **AND** text `"Submit"`.
+
+---
+
+## **3️⃣ `has()` for Parent-Child Relationship**
+Selects a **parent element** based on its **child content**.
+
+```ts
+await page.locator('div:has(span.icon-success)').click();
+```
+
+✅ Selects a `<div>` **only if** it has a child `<span class="icon-success">`.
+
+---
+
+## **4️⃣ `has-text()` with Parent-Child Locator**
+```ts
+await page.locator('div:has-text("Welcome")').click();
+```
+
+✅ Selects any `<div>` containing the text `"Welcome"`.
+
+---
+
+## **5️⃣ `nth()` for Multiple Elements**
+Selects a **specific occurrence** of multiple elements.
+
+```ts
+await page.locator('button').nth(1).click();
+```
+
+✅ Selects the **second button** on the page.
+
+---
+
+## **6️⃣ `:not()` for Filtering Elements**
+Excludes elements that match a given selector.
+
+```ts
+await page.locator('input:not([disabled])').fill('Test User');
+```
+
+✅ Fills only **enabled** input fields.
+
+---
+
+## **7️⃣ `or` Condition in XPath**
+Selects multiple elements using `|`.
+
+```ts
+await page.locator('//button[text()="Save"] | //button[text()="Submit"]').click();
+```
+
+✅ Clicks either a `"Save"` **or** `"Submit"` button.
+
+---
+
+## **8️⃣ Chained Locators for Specific Elements**
+Instead of writing long XPath queries, **chaining** locators makes it more readable.
+
+```ts
+const container = page.locator('.menu');
+await container.locator('button:has-text("Start")').click();
+```
+
+✅ Targets **only buttons inside `.menu`**.
+
+---
+
+## **🔥 Best Practices for Reliable Locators**
+✅ **Use `data-testid` or `data-qa` attributes** for stable locators:
+
+```ts
+await page.locator('[data-testid="login-button"]').click();
+```
+
+✅ **Avoid absolute XPath**, which may break on UI changes.
+
+✅ **Use Playwright’s built-in `getByRole()`** for accessibility-friendly locators:
+
+```ts
+await page.getByRole('button', { name: 'Login' }).click();
+```
+
+---
+
+🎯 **Following these techniques will make your Playwright tests more reliable, efficient, and maintainable!** 🚀
+
 
