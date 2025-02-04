@@ -103,9 +103,5 @@ XPath does not use `+` for sibling selection. Instead, you use `following-siblin
 
 ---
 
-## How to Convert This to a PDF
-1. Copy this document into **Microsoft Word, Google Docs, or Notepad++**.
-2. Format it properly (add bold headings, bullet points).
-3. Save the document as **PDF** using "File → Save As → PDF" or "Export as PDF".
+## 
 
-Let me know if you need more refinements! 🚀
