@@ -102,14 +102,11 @@ XPath does not use `+` for sibling selection. Instead, you use `following-siblin
 | `+` | Selects the next sibling | **Not used in XPath** | `h1 + p` selects the `<p>` after `<h1>` |
 
 
+---
 
----
----
----
 #######################################################################
---- 
---- 
 
+--- 
 
 
 # Playwright Locator Combinations
